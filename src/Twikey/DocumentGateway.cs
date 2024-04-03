@@ -122,7 +122,7 @@ namespace Twikey
             request.Headers.Add("User-Agent", _twikeyClient.UserAgent);
             request.Headers.Add("Authorization", await _twikeyClient.GetSessionToken());
             if (xTypes != null && xTypes.Length != 0)
-                request.Headers.Add("X-TYPES", string.Join(',', xTypes));
+                request.Headers.Add("X-TYPES", string.Join(",", xTypes));
 
             HttpResponseMessage response = await _twikeyClient.SendAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
