@@ -2,11 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <PackageId>TwikeySDK</PackageId>
-    <Version>1.1.0</Version>
+    <PackageId>TwikeySDK-Pitcrew</PackageId>
+    <Version>1.2.2</Version>
     <Company>Twikey</Company>
     <Description>.NET SDK to work with Twikey's API</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/pitcrewnl/pitcrew-shared</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
