@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Net.Http;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace Twikey
@@ -28,6 +27,7 @@ namespace Twikey
         public static readonly string FORM_URL = "application/x-www-form-urlencoded";
         public static readonly string JSON = "application/json";
         public string UserAgent { get; private set; }
+        public CustomerGateway Customer { get; }
         public DocumentGateway Document { get; }
         public InvoiceGateway Invoice { get; }
         public PaylinkGateway Paylink { get; }
@@ -40,6 +40,7 @@ namespace Twikey
             _apiKey = apiKey;
             _endpoint = test ? s_testEnvironment : s_prodEnvironment;
             UserAgent = s_defaultUserHeader;
+            Customer = new CustomerGateway(this);
             Document = new DocumentGateway(this);
             Invoice = new InvoiceGateway(this);
             Paylink = new PaylinkGateway(this);
@@ -102,12 +103,12 @@ namespace Twikey
         public class UserException : Exception
         {
             public UserException(String apiError) : base(apiError) { }
-            public UserException(String apiError, Exception e) : base(apiError,e) { }
+            public UserException(String apiError, Exception e) : base(apiError, e) { }
         }
 
         public class UnauthenticatedException : UserException
         {
-            public UnauthenticatedException(Exception e) : base("Not authenticated",e) { }
+            public UnauthenticatedException(Exception e) : base("Not authenticated", e) { }
         }
 
         /// <param name="signatureHeader">Request.Headers["X-SIGNATURE"].First<string>()</param>
