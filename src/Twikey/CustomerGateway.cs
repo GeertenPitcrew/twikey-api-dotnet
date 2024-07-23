@@ -25,7 +25,6 @@ namespace Twikey
             }
 
             var queryParamBuilder = new StringBuilder();
-            queryParamBuilder.Append("ct=").Append(customer.Email).Append('&');
             queryParamBuilder.Append("l=").Append(customer.Lang).Append('&');
             queryParamBuilder.Append("email=").Append(customer.Email).Append('&');
             queryParamBuilder.Append("lastname=").Append(customer.Lastname).Append('&');
