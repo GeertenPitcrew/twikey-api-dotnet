@@ -45,7 +45,7 @@ namespace TwikeyAPITests
             var customer = ConstructCustomer();
             customer.CustomerNumber = null;
 
-            await Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await _api.Customer.UpdateAsync(customer));
+            await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await _api.Customer.UpdateAsync(customer));
         }
 
         [TestMethod]
