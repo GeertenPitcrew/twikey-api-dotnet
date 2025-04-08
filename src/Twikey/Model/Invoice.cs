@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using Twikey.Model.Parameters;
 
 namespace Twikey.Model
 {
@@ -60,11 +61,11 @@ namespace Twikey.Model
 
         [JsonProperty("meta", NullValueHandling = NullValueHandling.Ignore)]
         [JsonIgnore]
-        public Dictionary<string, string> Meta { get; set; }
+        public Meta Meta { get; set; }
 
         [JsonProperty("lastpayment", NullValueHandling = NullValueHandling.Ignore)]
         [JsonIgnore]
-        public Dictionary<string, string> LastPayment { get; set; }
+        public List<LastPayment> LastPayment { get; set; }
     }
 
     public class CustomDateTimeConverter : Newtonsoft.Json.Converters.IsoDateTimeConverter
